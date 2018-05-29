@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+  <code>skupka</code>
+  <name>Скупка б.у телефонов</name>
+  <version>1.0.0</version>
+  <author>f4rr3ll</author>
+    <file path="admin/controller/common/menu.php">
+    <operation error="skip">
+      <search><![CDATA[$data['order_recurring'] = $this->url->link('sale/recurring', 'token=' . $this->session->data['token'], 'SSL');]]></search>
+      <add position="after"><![CDATA[$data['skupka'] = $this->url->link('skupka/skupka', '&token=' . $this->session->data['token'], 'SSL');]]></add>
+    </operation>
+  </file>
+
+  <file path="admin/view/template/common/menu.tpl">
+<operation error="skip">
+  <search><![CDATA[<li id="dashboard"><a href="<?php echo $home; ?>"><i class="fa fa-dashboard fa-fw"></i> <span><?php echo $text_dashboard; ?></span></a></li>]]></search>
+  <add position="after"><![CDATA[
+    <li>
+      <a href="<?php echo $skupka; ?>"><i class="fa fa-money fa-fw"></i> <span>Скупка б.у телефонов</span></a>
+    </li>
+]]></add>
+</operation>
+</file>
+</modification>
